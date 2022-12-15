@@ -75,3 +75,80 @@ release
 `wip`: 开发中
 `types`: 类型修改
 ```
+
+## git钩子
+
+git常用的两个钩子
+
+```
+pre-commit 它用于检查即将提交的快照
+commit-msg 在提交通过前验证项目状态或提交信息
+```
+
+
+
+git
+
+husky还是yorkie？
+
+yorkie居然是尤雨溪的 但是我看了看好久不维护了
+
+### husky
+
+https://github.com/typicode/husky
+
+https://typicode.github.io/husky/
+
+```
+安装
+pnpm install husky -D
+
+pnpm pkg set scripts.prepare="husky install"
+
+pnpm run prepare
+
+添加钩子
+npx husky add .husky/pre-commit "lint:fix" 这里可以添加lint-staged(需要装好eslint stylelint)
+
+git add .husky/pre-commit
+
+添加commitlint 我安装到了全局 直接配置就行
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+
+安装 commitizen，如此一来可以快速使用 cz 或 git cz 命令进行启动。
+npm install commitizen -D
+
+```
+
+### stylelint
+
+less的默认配置
+
+```
+首先安装Stylelint和标准配置和stylelint-less包
+npm install stylelint stylelint-config-standard stylelint-less --save-dev
+然后安装此配置
+npm install stylelint stylelint-config-recommended-less --save-dev
+
+.stylelintrc中
+{
+  "extends": "stylelint-config-standard",
+  "extends": "stylelint-config-recommended-less"
+}
+```
+
+添加vue支持
+
+```
+npm install --save-dev postcss-html stylelint-config-recommended-vue
+.stylelintrc中
+{
+    "extends": "stylelint-config-recommended-vue"
+}
+```
+
+### vue3与eslint
+
+https://my.oschina.net/u/3407699/blog/5517388
+

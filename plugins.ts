@@ -18,6 +18,8 @@ import presetIcons from '@unocss/preset-icons'
 
 import progress from 'vite-plugin-progress'
 
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 export default [
   vue(),
   vueJsx(),
@@ -43,7 +45,7 @@ export default [
     defaultExportByFilename: false,
     dirs: [
       './hooks',
-      './src/store',
+      './src/stores',
       './src/router',
     ],
     // Filepath to generate corresponding .d.ts file.
@@ -56,6 +58,7 @@ export default [
     // Custom resolvers, compatible with `unplugin-vue-components`
     // see https://github.com/antfu/unplugin-auto-import/pull/23/
     resolvers: [
+      ElementPlusResolver(),
     ],
     // Generate corresponding .eslintrc-auto-import.json file.
     // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
@@ -68,6 +71,7 @@ export default [
   Components({
     resolvers: [
       IconsResolver(),
+      ElementPlusResolver(),
     ],
     // relative paths to the directory to search for components.
     dirs: ['src/components'],

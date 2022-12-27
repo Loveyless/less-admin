@@ -81,6 +81,9 @@ export default [
     types: [{
       from: 'vue-router',
       names: ['RouterLink', 'RouterView'],
+    }, {
+      from: 'vuedraggable',
+      names: ['draggable'],
     }],
     version: 3,
   }),

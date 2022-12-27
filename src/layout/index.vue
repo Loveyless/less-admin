@@ -19,8 +19,8 @@
                   <el-icon><i-carbon-3d-cursor-alt /></el-icon>
                   <span>Navigator One</span>
                 </template>
-                <el-menu-item index="/about">
-                  about
+                <el-menu-item index="/echarts_custom">
+                  echarts_custom
                 </el-menu-item>
                 <el-menu-item index="2-2">
                   item two
@@ -70,6 +70,11 @@ setInterval(() => {
 
   .el-menu {
     height: calc(100vh - 60px); // 60px is the height of the header
+  }
+
+  .el-main {
+    padding: 0;
+    margin: 0;
   }
 }
 </style>

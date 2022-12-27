@@ -16,9 +16,11 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/echarts": "^4.9.16",
+    "@types/lodash-es": "^4.17.6",
     "axios": "^1.2.1",
     "echarts": "^5.4.1",
     "element-plus": "^2.2.27",
+    "lodash-es": "^4.17.21",
     "pinia": "^2.0.14",
     "pinia-plugin-persistedstate": "^3.0.1",
     "vue": "^3.2.37",

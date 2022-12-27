@@ -1,5 +1,5 @@
 <template>
-  <div ref="echartsRef" min-w="500px" w="full" min-h="300px" h="full" />
+  <div ref="echartsRef" min-w="150px" w="full" min-h="80px" h="full" />
 </template>
 
 <script lang="ts" setup>

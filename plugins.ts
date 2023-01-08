@@ -41,10 +41,10 @@ export default [
         ],
       },
     ],
-    // Enable auto import by filename for default module exports under directories
-    defaultExportByFilename: false,
+    // 为目录下的默认模块导出启用按文件名自动导入
+    defaultExportByFilename: true,
     dirs: [
-      './hooks',
+      './src/utils',
       './src/stores',
       './src/router',
     ],

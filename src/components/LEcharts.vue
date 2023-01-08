@@ -4,9 +4,10 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts'
+import resizeObserver from '@/utils/resizeObserver'
 
 const props = defineProps({
-  modelValue: {
+  opsion: {
     type: Object,
     default: () => {
       return {}
@@ -17,24 +18,17 @@ const props = defineProps({
 const echartsRef = ref<HTMLElement | null>(null)
 
 let myChart: echarts.ECharts
-onMounted(() => {
-  // 基于准备好的dom，初始化echarts实例
-  myChart = echarts.init(echartsRef.value as HTMLElement)
 
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(props.modelValue)
+watchEffect(() => {
+  myChart = echarts.init(echartsRef.value as HTMLElement)
+  myChart.setOption(props.opsion)
+}, {
+  flush: 'post', // 使侦听器延迟到组件渲染之后再执行
 })
 
-setInterval(() => {
-  myChart?.resize()
-}, 5000)
-
-function resize() {
-  myChart?.resize()
-}
-
-defineExpose({
-  resize,
+// 监听元素大小变化
+onMounted(() => {
+  resizeObserver(echartsRef.value as HTMLElement, myChart?.resize)
 })
 </script>
 
